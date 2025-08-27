@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Geolocalización</title>
+
+  <!-- Leaflet (CSS + JS) desde CDN -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+
+  <!-- Estilos dentro del HTML -->
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      background: #0078d7;
+      color: white;
+      padding: 1rem;
+    }
+
+    #h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    #pheader {
+      margin: 0.25rem 0 0;
+      font-size: 0.9rem;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1rem 0;
+    }
+
+    button {
+      background: #0078d7;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #005ea6;
+    }
+
+    #map {
+      height: 70vh;
+      margin: 0 auto;
+      max-width: 90%;
+      border: 2px solid #0078d7;
+      border-radius: 8px;
+    }
+
+    .info {
+      text-align: center;
+      margin: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header id="header1">
+    <h1 id="h1">Mi ubicación con Leaflet + OpenStreetMap</h1>
+    <p id="pheader">Sin claves, sin tarjeta, listo para usar.</p>
+  </header>
+
+  <div id="status"></div>
+
+  <div id="botones" class="toolbar">
+    <button id="btnLocate">Obtener mi ubicación</button>
+    <button id="btnCopy">Copiar coordenadas</button>
+    <button id="btnClear">Limpiar marcador</button>
+  </div>
+
+  <div id="map"></div>
+
+  <div class="info">
+    <div>
+      Latitud: <code id="lat">—</code> |
+      Longitud: <code id="lng">—</code> |
+      Precisión: <code id="acc">—</code> m
+    </div>
+    <p>
+      Tip: si el permiso es denegado, hacé <b>click en el mapa</b>
+      para poner un marcador manualmente.
+    </p>
+  </div>
+
+  <!-- Script propio -->
+  <script src="script.js"></script>
+</body>
+</html>
